@@ -1,0 +1,16 @@
+{
+  "name": "2024-04-fe-week-9",
+  "version": "1.0.0",
+  "main": "codeAssignWk9.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "chai": "^5.1.1",
+    "mocha": "^10.5.2"
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bob Ruzga Week 9 Coding Project</title>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+    <link rel="stylesheet" href="./codeAssignWk9.css">
+</head>
+<body>
+    <div id="mocha">
+        <p><a href="./index.html">Index</a></p>
+      </div>
+      <div id="messages"></div>
+      <div id="fixtures"></div>
+  
+      <script src="./node_modules/mocha/mocha.js"></script>
+      <script src="./node_modules/chai/chai.js"></script>
+      <script src="codeAssignWk9.js"></script>
+      <script>
+        mocha.setup('bdd')
+      </script>
+      <script src="wk9tests.js"></script>
+      <script>
+        mocha.run()
+      </script>
+
+    <div><h1>"Bob Ruzga's Week 9 Coding Project"</h1></div>
+    
+</body>
+</html>
