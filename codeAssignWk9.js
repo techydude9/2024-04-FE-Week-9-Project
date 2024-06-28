@@ -81,7 +81,7 @@ Write a Unit Test using Mocha and Chai for at least one of the functions you wri
 // ---- Setup section
 
 // Setup the Players for the Game
-    let game = new Players();
+    let  game = new Players();
     game.newPlayer("Bob");
     game.newPlayer("Deb");
     console.log (game);
@@ -112,7 +112,7 @@ Write a Unit Test using Mocha and Chai for at least one of the functions you wri
             newDeck.createDeck(deckSuite, v);
             }
     }
- //   console.log(newDeck); For testing 
+   console.log(newDeck);  // For testing - 
 
  // Shuffle Deck
     newDeck.shuffleDeck();
@@ -123,20 +123,41 @@ Write a Unit Test using Mocha and Chai for at least one of the functions you wri
     let player1Hand = new Deck();
     let player2Hand = new Deck();
 
-    let p1 = 0;
-    let p2 = 0;
+ //   console.log(newDeck);  // For testing only
 
- //   console.log(newDeck.length);
 
-    for (let i = 0; i < newDeck.length; i++) {     
-        if (i % 2 == 0) {
-            player1Hand[p1] = newDeck[i];
-            p1 += 1;
-         } else {
-            player2Hand[p2] = newDeck[i];
-            p2 += 1;
-         }
+    for (let i = 0; i < newDeck.length -1; i++) {     
+       if (i % 2 == 0) {
+           player1Hand.push(newDeck[i]);
+        } else {
+           player2Hand.push(newDeck[i]);
+          }
+   }
+
+    console.log(player1Hand);   // For testing only
+    console.log(player2Hand);   // For testing only
+
+// Let the battle begin
+    let p1Pts = 0;
+    let p2Pts = 0;
+
+    for (let i = 0; i < player1Hand.length - 1; i++) {
+        if (player1Hand.cardValue[i] > player2Hand.cardValue[i]) {
+            p1Pts +=1;
+        } else if (player2Hand.cardValue[i] > player1Hand.cardValue[i]) {
+            p2Pts +=1;
+        }  else {} 
     }
 
-    console.log(player1Hand);
-    console.log(player2Hand);
+// The Winner is ....
+
+    if (p1Pts > p2Pts) {
+        console.log (`The Winner is  ${game.players.onePlayer[0]} with ${p1Pts}
+                    while ${game.players.onePlayer[1]} had only ${p2Pts}}`);
+    } else if (p2Pts > p1Pts) {
+        console.log (`The Winner is  ${game.players.onePlayer[1]} with ${p2Pts}
+            while ${game.players.onePlayer[0]} had only ${p1Pts}}`);
+    } else {
+        console.log (`This game ended in a TIE with ${game.players.onePlayer[0]} having ${p1Pts}
+            while ${game.players.onePlayer[1]} had ${p2Pts}}`);
+    }
