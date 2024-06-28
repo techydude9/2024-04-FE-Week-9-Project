@@ -36,7 +36,7 @@ Write a Unit Test using Mocha and Chai for at least one of the functions you wri
         }
   
     // Method to add Player to game
-    Newplayer(name) {
+    newPlayer(name) {
         let p = new onePlayer(name);
         this.players.push(p);
         return p;
@@ -58,40 +58,32 @@ Write a Unit Test using Mocha and Chai for at least one of the functions you wri
         }
 
     //Method to create the Deck
-    CreateDeck(suit, value) {
+    createDeck(suit, value) {
         let d = new Acard(suit, value);
         this.deck.push(d);
         return d
         }
 
-/*    Shuffledeck(array) {
+    shuffleDeck() {
     // Shuffle the deck using the Fisher-Yates algorithm
-        console.log(array);
+    //    console.log(this.deck);
 
-        for (let i = array.length - 1; i > 0; i--) {
+        for (let i = this.deck.length - 1; i > 0; i--) {
          const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];    
+            [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];    
             }   
-        return array;
-        }  */
+        return this.deck;
+        }  
     }
-
-// Shuffle the deck using the Fisher-Yates algorithm
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
+   
 
 // --------------   BEGIN THE GAME of WAR!  --------
 // ---- Setup section
 
 // Setup the Players for the Game
     let game = new Players();
-    game.Newplayer("Bob");
-    game.Newplayer("Deb");
+    game.newPlayer("Bob");
+    game.newPlayer("Deb");
     console.log (game);
 
 // Create the Deck
@@ -117,13 +109,34 @@ function shuffle(array) {
                 console.log('Err. Something went wrong.')
               }
 
-            newDeck.CreateDeck(deckSuite, v);
+            newDeck.createDeck(deckSuite, v);
             }
     }
-    console.log(newDeck);
+ //   console.log(newDeck); For testing 
 
  // Shuffle Deck
- //   newDeck.Shuffledeck(newDeck);
-    shuffle(newDeck)
+    newDeck.shuffleDeck();
+    
+    console.log(newDeck);  //For Testing
 
-    console.log(newDeck);
+ // Let's Deal the cards to the players
+    let player1Hand = new Deck();
+    let player2Hand = new Deck();
+
+    let p1 = 0;
+    let p2 = 0;
+
+ //   console.log(newDeck.length);
+
+    for (let i = 0; i < newDeck.length; i++) {     
+        if (i % 2 == 0) {
+            player1Hand[p1] = newDeck[i];
+            p1 += 1;
+         } else {
+            player2Hand[p2] = newDeck[i];
+            p2 += 1;
+         }
+    }
+
+    console.log(player1Hand);
+    console.log(player2Hand);
