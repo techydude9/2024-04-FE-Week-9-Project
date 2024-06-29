@@ -20,6 +20,8 @@ The completed project should, when executed, do the following:
 
 The following is extra credit (10pts)
 Write a Unit Test using Mocha and Chai for at least one of the functions you write.
+
+    Program runs successfully and includes 2 mocha tests.
 */
 
 // Class for Player
